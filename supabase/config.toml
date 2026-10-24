@@ -1,0 +1,27 @@
+project_id = "fitos"
+
+[api]
+enabled = true
+port = 54321
+schemas = ["public", "storage"]
+
+[db]
+port = 54322
+major_version = 15
+
+[auth]
+enabled = true
+site_url = "http://localhost:3000"
+# Single-user app: create your account once, then set enable_signup = false (and disable it in the dashboard).
+enable_signup = true
+
+[storage]
+enabled = true
+file_size_limit = "5MiB"
+
+# Functions authenticate themselves (service-role bearer or x-cron-secret) — see _shared/util.ts
+[functions.compute-insights]
+verify_jwt = false
+
+[functions.weekly-report]
+verify_jwt = false
